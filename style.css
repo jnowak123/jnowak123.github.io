@@ -16,6 +16,10 @@ h1 {
   padding-right: 15%;
 }
 
+.accent {
+  color: var(--accent-color);
+}
+
 .headerButton {
   display: flex;
   gap: 12px;
@@ -42,6 +46,19 @@ h1 {
   background-color: var(--second-accent-color); 
 }
 
-.accent {
-  color: var(--accent-color);
+.paragraph {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: var(--text-color);
 }
+
+.paragraph h2 {
+  margin-bottom: 0px;
+}
+
+.paragraph hr {
+  border: none;
+  border-top: 2px solid var(--accent-color); 
+  margin-bottom: 16px;
+}
+
