@@ -63,34 +63,64 @@ details summary.accent {
   font-size: 1.5rem;
   cursor: pointer;
   width: 100%;
+  transition: color 0.3s ease;
 }
 
-/* Centered, square arrow - stays perfectly aligned while rotating */
+/* arrow */
 details summary.accent::before {
   content: "▶";
-  display: inline-flex;        /* makes it a flex box */
-  align-items: center;         /* vertically center glyph inside the box */
-  justify-content: center;     /* horizontally center glyph */
-  width: 1.15em;               /* square area sized relative to font */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15em;
   height: 1.15em;
-  margin-right: 0;             /* gap handled by summary's gap */
-  transform-origin: 50% 50%;   /* rotate around center */
-  transition: transform .18s ease;
-  font-size: 0.9em;            /* slightly smaller than text so it looks balanced */
+  margin-right: 0;
+  transform-origin: 50% 50%;
+  transition: transform .18s ease, color 0.3s ease;
+  font-size: 0.9em;
   line-height: 1;
 }
 
-/* rotate when open (points down) */
 details[open] summary.accent::before {
   transform: rotate(90deg);
 }
 
-/* trailing line */
+/* horizontal line */
 details summary.accent::after {
   content: "";
   flex: 1;
-  height: 1px;
+  height: 2px;
   background-color: var(--text-color);
   margin-left: 0.75rem;
+  background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   transform: translateY(2px);
+  transition: background 0.5s ease;
+}
+
+details summary.accent:hover {
+  color: var(--second-accent-color);
+}
+
+details summary.accent:hover::after {
+  background: linear-gradient(to right, var(--second-accent-color) 0%, var(--second-accent-color) 30%, var(--accent-color) 100%);
+}
+
+details > *:not(summary) {
+  padding-left: 2.4rem;
+  font-family: 'Open Sans';
+  font-size: 1rem;
+}
+
+.right {
+  float: right;
+  font-style: italic;
+}
+
+
+.coursework {
+  display: inline-block;
+  padding-left: 1rem;
+  font-style: normal;
 }
