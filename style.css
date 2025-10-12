@@ -8,16 +8,20 @@
 body {
   color: var(--text-color); 
   background-color: var(--bg-color);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 h1 {
   text-align: center;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .accent {
   color: var(--accent-color);
+  transition: color 0.3s ease;
 }
 
 .headerButton {
@@ -46,19 +50,47 @@ h1 {
   background-color: var(--second-accent-color); 
 }
 
-.paragraph {
-  padding-left: 10%;
-  padding-right: 10%;
-  color: var(--text-color);
+details {
+  padding-top: 30px;
 }
 
-.paragraph h2 {
-  margin-bottom: 0px;
+details summary.accent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 100%;
 }
 
-.paragraph hr {
-  border: none;
-  border-top: 2px solid var(--accent-color); 
-  margin-bottom: 16px;
+/* Centered, square arrow - stays perfectly aligned while rotating */
+details summary.accent::before {
+  content: "▶";
+  display: inline-flex;        /* makes it a flex box */
+  align-items: center;         /* vertically center glyph inside the box */
+  justify-content: center;     /* horizontally center glyph */
+  width: 1.15em;               /* square area sized relative to font */
+  height: 1.15em;
+  margin-right: 0;             /* gap handled by summary's gap */
+  transform-origin: 50% 50%;   /* rotate around center */
+  transition: transform .18s ease;
+  font-size: 0.9em;            /* slightly smaller than text so it looks balanced */
+  line-height: 1;
 }
 
+/* rotate when open (points down) */
+details[open] summary.accent::before {
+  transform: rotate(90deg);
+}
+
+/* trailing line */
+details summary.accent::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--text-color);
+  margin-left: 0.75rem;
+  transform: translateY(2px);
+}
