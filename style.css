@@ -128,13 +128,14 @@ details summary.accent:hover::after {
 
 details > *:not(summary) {
   padding-left: 2.4rem;
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
 }
 
 .right {
   float: right;
   font-style: italic;
+  text-align: right;
 }
 
 .coursework {
